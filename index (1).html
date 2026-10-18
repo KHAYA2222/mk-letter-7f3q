@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Rearabetswe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbf1ec; --bg2:#f4d9d8; --ink:#2b1f2e; --soft:#6d5a6c; --accent:#b5475f; --glow:#e9a3b2; --card:rgba(255,255,255,.62); --line:rgba(43,31,46,.14);
+  --serif:"Newsreader",Georgia,"Times New Roman",serif; --sans:"DM Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17101f; --bg2:#2a1630; --ink:#f6e9e4; --soft:#bba6b8; --accent:#f0a8b8; --glow:#f2cf9a; --card:rgba(255,255,255,.06); --line:rgba(246,233,228,.16)}}
+:root[data-theme="dark"]{--bg:#17101f; --bg2:#2a1630; --ink:#f6e9e4; --soft:#bba6b8; --accent:#f0a8b8; --glow:#f2cf9a; --card:rgba(255,255,255,.06); --line:rgba(246,233,228,.16)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;min-height:100%;background:radial-gradient(120% 80% at 20% 0%,var(--bg2),var(--bg) 60%) var(--bg);color:var(--ink);font-family:var(--sans);overflow-x:hidden}
+.orb{position:fixed;border-radius:50%;filter:blur(70px);opacity:.45;pointer-events:none;background:var(--glow);animation:drift 18s ease-in-out infinite alternate}
+.orb.a{width:46vmax;height:46vmax;left:-14vmax;bottom:-18vmax}
+.orb.b{width:30vmax;height:30vmax;right:-10vmax;top:-8vmax;background:var(--accent);animation-duration:24s}
+@keyframes drift{to{transform:translate(6vmax,-4vmax) scale(1.12)}}
+main{position:relative;z-index:1;min-height:100svh;display:grid;place-items:center;padding:24px 20px}
+.stage{width:min(560px,100%);text-align:center}
+.scene{display:none;animation:in .8s ease both}
+.scene.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+h1,h2{font-family:var(--serif);font-weight:300;line-height:1.1;margin:0 0 18px}
+h1{font-size:clamp(2.6rem,10vw,4.4rem);font-style:italic}
+h2{font-size:clamp(1.8rem,6vw,2.6rem)}
+p{font-family:var(--serif);font-size:clamp(1.12rem,3.6vw,1.35rem);line-height:1.65;color:var(--soft);margin:0 0 22px}
+.sub{font-family:var(--sans);font-size:.95rem;color:var(--soft);margin-bottom:28px}
+button{font:inherit;cursor:pointer;color:inherit}
+.btn{font-family:var(--sans);font-weight:500;font-size:1rem;padding:14px 30px;border-radius:999px;border:1px solid var(--accent);background:var(--accent);color:var(--bg);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px -10px var(--accent)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn[disabled]{opacity:.35;pointer-events:none}
+:focus-visible{outline:2px solid var(--glow);outline-offset:3px}
+.env{width:150px;height:104px;margin:0 auto 34px;border:1px solid var(--line);border-radius:6px;background:var(--card);backdrop-filter:blur(6px);position:relative;display:grid;place-items:center;font-size:2.2rem;animation:float 4s ease-in-out infinite}
+.env::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom right,transparent 49.5%,var(--line) 50%,transparent 50.5%),linear-gradient(to bottom left,transparent 49.5%,var(--line) 50%,transparent 50.5%);border-radius:6px}
+.env span{position:relative;color:var(--accent)}
+@keyframes float{50%{transform:translateY(-8px)}}
+.letter{min-height:15rem;display:flex;flex-direction:column;justify-content:center}
+.letter p{opacity:0;transform:translateY(8px);transition:opacity 1s,transform 1s;margin-bottom:16px}
+.letter p.show{opacity:1;transform:none;color:var(--ink)}
+.dots{display:flex;gap:8px;justify-content:center;margin:26px 0}
+.dots i{width:7px;height:7px;border-radius:50%;background:var(--line);transition:.4s}
+.dots i.on{background:var(--accent);transform:scale(1.4)}
+.promises{display:grid;gap:12px;margin:0 0 26px;text-align:left}
+.pr{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:var(--card);backdrop-filter:blur(6px);width:100%;text-align:left;transition:.35s}
+.pr .tick{flex:none;width:22px;height:22px;border-radius:50%;border:1px solid var(--soft);display:grid;place-items:center;font-size:.8rem;color:transparent;transition:.35s;margin-top:2px}
+.pr b{display:block;font-family:var(--serif);font-weight:400;font-size:1.15rem;margin-bottom:2px}
+.pr small{color:var(--soft);font-size:.9rem;line-height:1.4}
+.pr.on{border-color:var(--accent);box-shadow:0 0 30px -12px var(--accent)}
+.pr.on .tick{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.choices{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:26px}
+#reply{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--ink);min-height:4.5rem}
+a.btn{display:inline-block;text-decoration:none}
+.send{margin-top:18px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;animation:in .8s ease both}
+.send .sub{flex-basis:100%;margin:0 0 4px}
+.send[hidden]{display:none}
+.heart{position:fixed;z-index:5;pointer-events:none;color:var(--accent);animation:rise 2.6s ease-out forwards}
+@keyframes rise{from{opacity:1;transform:translate(0,0) scale(.6)}to{opacity:0;transform:translate(var(--dx),-70vh) scale(1.5) rotate(var(--r))}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.heart{display:none}}
+</style>
+</head>
+<body>
+<div class="orb a"></div><div class="orb b"></div>
+<main><div class="stage">
+
+<section class="scene on" id="s0">
+  <div class="env" aria-hidden="true"><span>♥</span></div>
+  <h1 id="hello">I owe you this</h1>
+  <p>Rearabetswe, I wrote you something. You don’t have to read it right now, and you don’t have to reply.</p>
+  <button class="btn" data-next>Open the letter</button>
+</section>
+
+<section class="scene" id="s1">
+  <div class="letter" id="letter"></div>
+  <div class="dots" id="dots" aria-hidden="true"></div>
+  <button class="btn" id="more">Keep reading</button>
+</section>
+
+<section class="scene" id="s2">
+  <h2>What would help you</h2>
+  <p class="sub">Tap what you want me to do. Choose as many or as few as you like.</p>
+  <div class="promises" id="promises"></div>
+  <button class="btn" id="toEnd" disabled>This is what I need</button>
+</section>
+
+<section class="scene" id="s3">
+  <h2>No pressure, ever</h2>
+  <p>Whatever you need, I’ll respect it. Pick what feels true right now.</p>
+  <div class="choices">
+    <button class="btn ghost" data-r="time">I need time</button>
+    <button class="btn" data-r="talk">Let’s talk</button>
+    <button class="btn ghost" data-r="hurt">I’m still hurting</button>
+  </div>
+  <div id="reply" aria-live="polite"></div>
+  <div class="send" id="send" hidden>
+    <p class="sub">If you want him to know, send it here. It’s entirely up to you.</p>
+    <a class="btn" id="wa" target="_blank" rel="noopener">Send on WhatsApp</a>
+    <a class="btn ghost" id="sms">Send as a text</a>
+  </div>
+</section>
+
+</div></main>
+
+<script>
+/* Edit these two lines before sending: */
+var HER_NAME = "Makhaya";
+var MY_NAME  = "Khayelihle";
+var MY_PHONE = "27616327911";  // international format, no + or spaces
+
+var lines = [
+  "I’m sorry. Not for how it looked, but for how it made you feel: unsure, small, and alone with your thoughts.",
+  "You gave me your trust, and the doubt you felt was real. I should have protected that trust better, and I didn’t.",
+  "I won’t ask you to rush past the hurt, and I won’t argue with what you feel. Your feelings are not an inconvenience to me.",
+  "You deserve openness, patience, and a partner who makes you feel safe without having to ask. I want to be that for you."
+];
+var promises = [
+  ["I’ll be open","You can ask me anything and get a straight answer, even when it’s uncomfortable."],
+  ["I’ll own my part","No excuses, no turning it around on you."],
+  ["I’ll give you space","Time to feel what you feel, on your schedule, not mine."],
+  ["I’ll show up in small ways","Consistency over big gestures, every day, not just this week."]
+];
+var $=function(s){return document.querySelector(s)};
+if(HER_NAME){$("#hello").textContent="For you, "+HER_NAME}
+
+function go(n){
+  document.querySelectorAll(".scene").forEach(function(s,i){s.classList.toggle("on",i===n)});
+  window.scrollTo(0,0);
+}
+function hearts(x,y,n){
+  for(var i=0;i<n;i++){
+    var h=document.createElement("div"); h.className="heart"; h.textContent="♥";
+    h.style.left=(x+(Math.random()*40-20))+"px"; h.style.top=y+"px";
+    h.style.fontSize=(14+Math.random()*18)+"px";
+    h.style.setProperty("--dx",(Math.random()*160-80)+"px");
+    h.style.setProperty("--r",(Math.random()*60-30)+"deg");
+    h.style.animationDelay=(i*0.08)+"s";
+    document.body.appendChild(h); setTimeout(function(el){el.remove()},3200,h);
+  }
+}
+document.addEventListener("click",function(e){hearts(e.clientX,e.clientY,3)});
+
+document.querySelector("[data-next]").onclick=function(){go(1);reveal()};
+
+var L=$("#letter"),D=$("#dots"),idx=0;
+lines.forEach(function(t){var p=document.createElement("p");p.textContent=t;L.appendChild(p);D.appendChild(document.createElement("i"))});
+function reveal(){
+  if(idx<lines.length){
+    L.children[idx].classList.add("show"); D.children[idx].classList.add("on"); idx++;
+    if(idx>=lines.length){$("#more").textContent=MY_NAME?("Continue, with love, "+MY_NAME):"Continue"}
+  } else go(2);
+}
+$("#more").onclick=reveal;
+
+var P=$("#promises"),done=0,picked=[];
+promises.forEach(function(x){
+  var b=document.createElement("button"); b.className="pr";
+  b.innerHTML='<span class="tick">✓</span><span><b></b><small></small></span>';
+  b.querySelector("b").textContent=x[0]; b.querySelector("small").textContent=x[1];
+  b.onclick=function(){
+    var on=b.classList.toggle("on"); done+=on?1:-1;
+    if(on){picked.push(x[0])}else{picked=picked.filter(function(t){return t!==x[0]})}
+    $("#toEnd").disabled=done<1;
+  };
+  P.appendChild(b);
+});
+$("#toEnd").onclick=function(){go(3);var r=$("#toEnd").getBoundingClientRect();hearts(innerWidth/2,innerHeight*.6,14)};
+
+var replies={
+  time:"Take all the time you need. I’ll be here, and I won’t pressure you for an answer.",
+  talk:"Thank you. Whenever you’re ready, I’ll listen first and I’ll be honest with you. Message me, or call.",
+  hurt:"That’s okay, and it’s fair. I’m not going anywhere, and I’ll keep earning your trust back."
+};
+var labels={time:"I need time",talk:"Let’s talk",hurt:"I’m still hurting"};
+document.querySelectorAll("[data-r]").forEach(function(b){
+  b.onclick=function(){
+    var k=b.dataset.r;
+    $("#reply").textContent=replies[k];
+    hearts(innerWidth/2,innerHeight*.7,10);
+    var msg="Hi "+MY_NAME+", it’s "+(HER_NAME||"me")+". I read your letter. My answer: "+labels[k]+"."+(picked.length?" What I’d like from you: "+picked.join("; ")+".":"");
+    $("#wa").href="https://wa.me/"+MY_PHONE+"?text="+encodeURIComponent(msg);
+    $("#sms").href="sms:+"+MY_PHONE+"?&body="+encodeURIComponent(msg);
+    $("#send").hidden=false;
+  };
+});
+</script>
+</body>
+</html>
